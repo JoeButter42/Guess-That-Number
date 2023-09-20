@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Javascript file -->
+    <script src="./s&box.js"></script>
+
+    <!-- Style sheet -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- Google 'lobster' font kit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+
+
+
+<body>
+    <main>
+
+        <div id="menuScreen">
+            <button id="buttonStart" onclick="gameStart(), setRanNum()">START</button>
+            <p id="demo"></p>
+        </div>
+
+
+
+        <div id="game">
+            <div id="title">
+                <h1>Guess That Number!</h1>
+                <h4 id="scoreCounter" style="display: inline-block;">Attempts: </h4>
+                <h4 id="score" style="display: inline-block;">0</h4>
+                <div id="attemptResult">...</div>
+            </div>
+
+            <div id="sliderContainer">
+                <input type="range" min="0" max="100" step="1" value="50" name="mySlider" id="mySlider">
+            </div>
+
+            <div id="numval">
+                <div id="selectedNum"></div>
+            </div>
+            <div>
+                <div id="containerForButton">
+                    <button id="guessbtn" onclick="guessNum()">Guess...</button>
+                    <button id="playAgainBtn" onclick="playAgain(), setRanNum()">Play Again?</button>
+                </div>
+            </div>
+        </div>
+
+
+        
+        <script>
+            const click = new Audio('a-click.mp3');
+
+            let slider = document.getElementById('mySlider');
+            let output = document.getElementById('selectedNum');
+            output.innerHTML = slider.value;
+
+            slider.oninput = function () {
+                output.innerHTML = this.value;
+                // click.play();
+                click.cloneNode(true).play()
+            }
+            
+        </script>
+
+    </main>
+</body>
+</html>
